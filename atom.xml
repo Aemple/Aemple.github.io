@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Aemple</title>
+  
+  <subtitle>不懂则学  懂则分享</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://aemple.top/"/>
+  <updated>2018-03-20T10:01:51.440Z</updated>
+  <id>http://aemple.top/</id>
+  
+  <author>
+    <name>Aemple</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>占领未来的打包工具---Parcel（介绍）</title>
+    <link href="http://aemple.top/2018/03/19/packParcelOne/"/>
+    <id>http://aemple.top/2018/03/19/packParcelOne/</id>
+    <published>2018-03-19T14:01:32.000Z</published>
+    <updated>2018-03-20T10:01:51.440Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基本概况"><a href="#基本概况" class="headerlink" title="基本概况"></a>基本概况</h1><p>最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但是很受欢迎，看下图就知道它到底有多火了。</p><p><img src="/images/picblog/parcel1.png" alt="图片"></p><p><strong>这么火的东西我们怎么能不学呢？那么它到底火在哪儿？来看看我的示例分析(教程)吧！！！</strong></p><h2 id="官方介绍地址"><a href="#官方介绍地址" class="headerlink" title="官方介绍地址"></a>官方介绍地址</h2><p><strong>官方地址：</strong><a href="https://parceljs.org/" target="_blank" rel="noopener">https://parceljs.org/</a></p><p><strong>GitHub地址：</strong><a href="https://github.com/parcel-bundler/parcel" target="_blank" rel="noopener">https://github.com/parcel-bundler/parcel</a></p><h1 id="Parcel-VS-Webpack"><a href="#Parcel-VS-Webpack" class="headerlink" title="Parcel VS Webpack"></a>Parcel VS Webpack</h1><h2 id="听我扯一扯"><a href="#听我扯一扯" class="headerlink" title="听我扯一扯"></a>听我扯一扯</h2><p>介绍这个库之前，我来说一下我个人觉得 webpack 的一些不好的地方（相对于 Parcel）。</p><p>  1、需要写配置文件（webpack.config.js），可能每使用一个功能，比如加载图片或 css，都要添加配置，要维护配置文件，而 Parcel 不需要。</p><p>  2、感觉编译或加载速度有些慢，特别是库多或项目复杂的时候，虽然有一些办法代码拆分的方法可以解决，比如 CommonsChunkPlugin 或 DLLPlugin 之类的，但这些方法有些复杂。</p><h2 id="官方数据"><a href="#官方数据" class="headerlink" title="官方数据"></a>官方数据</h2><p>  <strong>打包速度</strong></p><p>  真的飞一般的感觉吧！！！</p><p>  <img src="/images/picblog/parcel2.png" alt="图片"></p><h2 id="学习成本"><a href="#学习成本" class="headerlink" title="学习成本"></a>学习成本</h2><p> webpack需要一定的时间去学习如何使用而 Parcel 有很多优点，可以不使用配置文件，也就是说你只管写代码，它会自动运行，很智能化，打个比方吧，比如在 webpack 中如果要处理 css，那得要安装和加载一个 css 的 loader，然后配置文件写上几行，可是 Parcel 不需要，直接用就行。Parcel 学习起来比较简单，基本上可以说 “不用学习”，只是使用就可以了。<strong>除此之外</strong> 模块热替换和代码拆分的功能，Parcel 也有，还有，如果要你用 Parcel 写一个 react 的运行环境，可能不需要配置任何内容，只要安装几个 react 的包就可以用起来了。</p><p><strong>说了这么多，我还是要把官方对它的特性进行概括的图片放出来：</strong></p><p><img src="/images/picblog/parcel3.png" alt="图片"></p><blockquote><p><strong>说到这里小伙伴们是不是和我当初一样心动了呢？  下一篇博客我们一起上手玩起来吧！！！</strong></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;基本概况&quot;&gt;&lt;a href=&quot;#基本概况&quot; class=&quot;headerlink&quot; title=&quot;基本概况&quot;&gt;&lt;/a&gt;基本概况&lt;/h1&gt;&lt;p&gt;最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但
+      
+    
+    </summary>
+    
+      <category term="打包工具" scheme="http://aemple.top/categories/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
+    
+      <category term="分享" scheme="http://aemple.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown基础范例</title>
+    <link href="http://aemple.top/2018/03/13/markdown/"/>
+    <id>http://aemple.top/2018/03/13/markdown/</id>
+    <published>2018-03-13T11:01:55.000Z</published>
+    <updated>2018-08-15T06:54:30.751Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="你好，前端"><a href="#你好，前端" class="headerlink" title="你好，前端"></a>你好，前端</h1><h2 id="第一篇文章哦"><a href="#第一篇文章哦" class="headerlink" title="第一篇文章哦"></a>第一篇文章哦</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 你好，前端</span><br><span class="line">## 第一篇文章哦</span><br><span class="line">### 三级标题</span><br></pre></td></tr></table></figure><hr><ul><li>列表1</li><li>列表2<br> a 次列表<br> b 此列表</li><li>列表三</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 列表1</span><br><span class="line">- 列表2</span><br><span class="line">   a 次列表</span><br><span class="line">   b 此列表</span><br><span class="line">- 列表三</span><br></pre></td></tr></table></figure><hr><p><a href="http://www.aemple.top" target="_blank" rel="noopener">博客导航</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[博客导航](http://www.aemple.top)</span><br></pre></td></tr></table></figure><hr><p><img src="/images/avatar.jpg" alt="图片"></p><p><em>字体斜体</em><br><strong>字体加粗</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片](/images/avatar.jpg)</span><br><span class="line"></span><br><span class="line">*字体斜体*</span><br><span class="line">**字体加粗**</span><br></pre></td></tr></table></figure><hr><p><code>&lt;html&gt;&lt;/html&gt;</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">   &lt;head&gt;</span><br><span class="line">      &lt;title&gt;我是标题&lt;/title&gt;</span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">   &lt;body&gt;</span><br><span class="line">      &lt;h1&gt;啦啦啦啦&lt;h1&gt;</span><br><span class="line">   &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><hr><blockquote><p>我是应用块哦</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;我是应用块哦</span><br></pre></td></tr></table></figure><hr><hr><blockquote><p><strong>这些都经常用到希望小伙伴们加深记忆</strong></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;你好，前端&quot;&gt;&lt;a href=&quot;#你好，前端&quot; class=&quot;headerlink&quot; title=&quot;你好，前端&quot;&gt;&lt;/a&gt;你好，前端&lt;/h1&gt;&lt;h2 id=&quot;第一篇文章哦&quot;&gt;&lt;a href=&quot;#第一篇文章哦&quot; class=&quot;headerlink&quot; title=&quot;第
+      
+    
+    </summary>
+    
+      <category term="markdown" scheme="http://aemple.top/categories/markdown/"/>
+    
+    
+      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
+    
+      <category term="分享" scheme="http://aemple.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+</feed>
