@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="分享," />
 
 
 
@@ -88,16 +88,18 @@
 
 
 
-<meta name="description" content="Aemple的个人博客，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aemple">
-<meta property="og:url" content="http://aemple.top/archives/2018/index.html">
+<meta name="description" content="首先什么是递归 递归是一项非常重要的编程技巧，函数通过它调用其本身。 —msdn文档介绍  举个例子,常用的乘阶。 12345function factorial(i) &amp;#123;	if (i === 1) return i;	return i* factorial(i - 1);&amp;#125;console.log(factorial(5)); // 5*4*3*2*1 分几个步骤:  声明一个">
+<meta name="keywords" content="分享">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript递归函数">
+<meta property="og:url" content="http://aemple.top/2018/03/27/digui/index.html">
 <meta property="og:site_name" content="Aemple">
-<meta property="og:description" content="Aemple的个人博客，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
+<meta property="og:description" content="首先什么是递归 递归是一项非常重要的编程技巧，函数通过它调用其本身。 —msdn文档介绍  举个例子,常用的乘阶。 12345function factorial(i) &amp;#123;	if (i === 1) return i;	return i* factorial(i - 1);&amp;#125;console.log(factorial(5)); // 5*4*3*2*1 分几个步骤:  声明一个">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-24T11:15:40.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aemple">
-<meta name="twitter:description" content="Aemple的个人博客，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面">
+<meta name="twitter:title" content="javaScript递归函数">
+<meta name="twitter:description" content="首先什么是递归 递归是一项非常重要的编程技巧，函数通过它调用其本身。 —msdn文档介绍  举个例子,常用的乘阶。 12345function factorial(i) &amp;#123;	if (i === 1) return i;	return i* factorial(i - 1);&amp;#125;console.log(factorial(5)); // 5*4*3*2*1 分几个步骤:  声明一个">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://aemple.top/archives/2018/"/>
+  <link rel="canonical" href="http://aemple.top/2018/03/27/digui/"/>
 
 
 
 
 
-  <title>归档 | Aemple</title>
+  <title>javaScript递归函数 | Aemple</title>
   
 
 
@@ -152,7 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/Aemple" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
@@ -302,222 +304,279 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://aemple.top/2018/03/27/digui/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aemple">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aemple">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">javaScript递归函数</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T15:33:09+08:00">
+                2018-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 5 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/12/vue/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">Vue CLI使用scss</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  800
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-12T10:13:25+08:00"
-              content="2018-04-12" >
-          04-12
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/27/digui/" itemprop="url">
-              
-                <span itemprop="name">javaScript递归函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-27T15:33:09+08:00"
-              content="2018-03-27" >
-          03-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/19/packParcelOne/" itemprop="url">
-              
-                <span itemprop="name">占领未来的打包工具---Parcel（介绍）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-19T22:01:32+08:00"
-              content="2018-03-19" >
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h4 id="首先什么是递归"><a href="#首先什么是递归" class="headerlink" title="首先什么是递归"></a>首先什么是递归</h4><blockquote>
+<p>递归是一项非常重要的编程技巧，函数通过它调用其本身。 —msdn文档介绍</p>
+</blockquote>
+<p>举个例子,常用的乘阶。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function factorial(i) &#123;</span><br><span class="line">	if (i === 1) return i;</span><br><span class="line">	return i* factorial(i - 1);</span><br><span class="line">&#125;</span><br><span class="line">console.log(factorial(5)); // 5*4*3*2*1</span><br></pre></td></tr></table></figure>
+<p>分几个步骤:</p>
+<ul>
+<li>声明一个函数factorial，接受一个参数i。</li>
+<li>判断i是否等于1，如果等于1则直接返回i。</li>
+<li>如果i不等于1，则返回i * factorial(i - 1)，再次调用函数本身。(如此如果严格可以判断i是否大于等于0）</li>
+<li>然后函数就会重复2 - 3两个步骤，直至i减到1为止。</li>
+</ul>
+<h3 id="JavaScript执行上下文栈"><a href="#JavaScript执行上下文栈" class="headerlink" title="JavaScript执行上下文栈"></a>JavaScript执行上下文栈</h3><p>   大家可以看看这个教程，我认为很不错！<a href="https://github.com/mqyqingfeng/Blog/issues/4" target="_blank" rel="noopener">地址</a></p>
+<ul>
+<li>JavaScript执行顺序。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var foo = functiom () &#123;</span><br><span class="line">	console.log(&apos;foo1&apos;)；</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line">var foo = functiom () &#123;</span><br><span class="line">	console.log(&apos;foo2&apos;)；</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line">//最后会打印出</span><br><span class="line">//foo1</span><br><span class="line">//foo2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>解释一下这个为什么不会被覆盖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//上面的代码写成这样就比较好理解</span><br><span class="line">var foo;</span><br><span class="line">foo = function() &#123;</span><br><span class="line">	console.log(&apos;foo1&apos;)</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br><span class="line">foo = function() &#123;</span><br><span class="line">	console.log(&apos;foo2&apos;)</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&apos;foo1&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();  // foo2</span><br><span class="line"></span><br><span class="line">function foo() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&apos;foo2&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); // foo2</span><br></pre></td></tr></table></figure>
+<p>再解释一下这个！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function foo() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&apos;foo1&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">function foo() &#123;</span><br><span class="line"></span><br><span class="line">    console.log(&apos;foo2&apos;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">foo();  // foo2</span><br><span class="line">foo();  // foo2</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>函数被提升之后第二个覆盖了第一个，这是JavaScript作用域提升。</li>
+<li>JavaScript的可执行代码有三种，全局代码，函数代码，eval代码</li>
+<li>当执行到一个函数的时候就会进行准备工作，叫做执行上下文。</li>
+<li>原博客把执行上下文说的很清楚了，我理解了一部分。有兴趣可以点击上面的连接继续了解，继续讲递归。</li>
+</ul>
+<h4 id="尾调用"><a href="#尾调用" class="headerlink" title="尾调用"></a>尾调用</h4><p>根据上面的知识，以及以前的知识，我们都知道递归会消耗大量内存，之执行一个函数就压入上下文栈，直至递归结束才会释放，造成递归占用大量内存。</p>
+<blockquote>
+<p>尾调用，是指函数内部的最后一个动作是函数调用，改调用的返回值，直接返回给函数。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function f (x) &#123;</span><br><span class="line">	return g(x)</span><br><span class="line">&#125;</span><br><span class="line">// 尾调用</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f(x) &#123;</span><br><span class="line">	return g(x) - 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 非尾调用</span><br></pre></td></tr></table></figure>
+<p>用上面的上下文栈，来看第二个函数，函数f执行指挥返回一个g函数而g函数的结果需要f函数作用域内 - 1才是结果，导致引用的时候g函数入栈的时候会持有f函数的作用域，f得不到释放，一直等g函数结束之后才会被释放。</p>
+<p>现在优化一下上面的递归</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function factorial(i, res) &#123;</span><br><span class="line">	if(i === 1) return res;</span><br><span class="line">	return factorial(i-1, i*res)</span><br><span class="line">&#125;</span><br><span class="line">console.log(factorial(4, 1))</span><br></pre></td></tr></table></figure>
+<p>这样优化函数，保持返回的函数没有上个函数的引用，这样上个函数在入栈之后执行到return之后就会被释放，而不会和上面的递归一样等到最终结果才会被释放。（ps。JavaScript上下文栈，需要好好看看比较重要）</p>
+<p><code>## javaScript</code></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/13/markdown/" itemprop="url">
-              
-                <span itemprop="name">markdown基础范例</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-13T19:01:55+08:00"
-              content="2018-03-13" >
-          03-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/13/helloHexo/" itemprop="url">
-              
-                <span itemprop="name">Hello-Hexo</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-13T14:22:03+08:00"
-              content="2018-03-13" >
-          03-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    <div style="text-align:center">
+      
+      <div>
+
+
+-------------本文已结束 😘 感谢您的阅读-------------
+
+    
+</div>
+
+  	  
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Aemple 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/分享/" rel="tag"># 分享</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/packParcelOne/" rel="next" title="占领未来的打包工具---Parcel（介绍）">
+                <i class="fa fa-chevron-left"></i> 占领未来的打包工具---Parcel（介绍）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/12/vue/" rel="prev" title="Vue CLI使用scss">
+                Vue CLI使用scss <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -525,6 +584,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNTAwMi8xMTUzOQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -545,8 +613,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -667,6 +744,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先什么是递归"><span class="nav-number">1.</span> <span class="nav-text">首先什么是递归</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript执行上下文栈"><span class="nav-number"></span> <span class="nav-text">JavaScript执行上下文栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尾调用"><span class="nav-number">1.</span> <span class="nav-text">尾调用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -811,6 +904,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -839,6 +936,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
