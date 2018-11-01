@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aemple.top/"/>
-  <updated>2018-11-01T10:25:39.578Z</updated>
+  <updated>2018-11-01T10:39:49.651Z</updated>
   <id>http://aemple.top/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="http://aemple.top/2018/04/12/vue/"/>
     <id>http://aemple.top/2018/04/12/vue/</id>
     <published>2018-04-12T02:13:25.000Z</published>
-    <updated>2018-11-01T10:25:39.578Z</updated>
+    <updated>2018-11-01T10:39:49.651Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/avatar.jpg" alt="图片"></p><h2 id="在Vue-CLI脚手架中使用scss"><a href="#在Vue-CLI脚手架中使用scss" class="headerlink" title="在Vue CLI脚手架中使用scss"></a>在Vue CLI脚手架中使用scss</h2><p>今天学习vue当中遇到了如何配置scss的问题经过查证，写出记录。</p><p><code>第一步:</code></p><p>npm install sass-loader node-sass</p><p>或者</p><p>yarn add sass-loader node-sass</p><blockquote><p>如果node-sass在Windows中安装失败(需要Python和C++构建工具），大家可以使用cnpm单独安装node-sass</p></blockquote><p><code>第二步:</code></p><p>在vue文件中使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;style  lang=&apos;scss&apos;&gt;</span><br><span class="line">![scss](https://tse4-mm.cn.bing.net/th?id=OIP.HuHbi6D0rpzsTenMxWgfXgHaFj&amp;w=253&amp;h=184&amp;c=7&amp;o=5&amp;pid=1.7)</span><br><span class="line">#app &#123;</span><br><span class="line"></span><br><span class="line">        @import  url(&apos;./assets/aaa.scss&apos;); // 引入单独的scss文件</span><br><span class="line"></span><br><span class="line">        font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</span><br><span class="line"></span><br><span class="line">        -webkit-font-smoothing: antialiased;</span><br><span class="line"></span><br><span class="line">        -moz-osx-font-smoothing: grayscale;</span><br><span class="line"></span><br><span class="line">        text-align: center;</span><br><span class="line"></span><br><span class="line">        color: #2c3e50;</span><br><span class="line"></span><br><span class="line">        margin-top: 60px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="这样就很愉快的完成了！"><a href="#这样就很愉快的完成了！" class="headerlink" title="这样就很愉快的完成了！"></a>这样就很愉快的完成了！</h4><h4 id="使用Sass同理"><a href="#使用Sass同理" class="headerlink" title="使用Sass同理"></a>使用Sass同理</h4><p><code>## Sass使用</code></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="在Vue-CLI脚手架中使用scss"><a href="#在Vue-CLI脚手架中使用scss" class="headerlink" title="在Vue CLI脚手架中使用scss"></a>在Vue CLI脚手架中使用scss</h2><p>今天学习vue当中遇到了如何配置scss的问题经过查证，写出记录。</p><p><code>第一步:</code></p><p>npm install sass-loader node-sass</p><p>或者</p><p>yarn add sass-loader node-sass</p><blockquote><p>如果node-sass在Windows中安装失败(需要Python和C++构建工具），大家可以使用cnpm单独安装node-sass</p></blockquote><p><code>第二步:</code></p><p>在vue文件中使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;style  lang=&apos;scss&apos;&gt;</span><br><span class="line">![scss](https://tse4-mm.cn.bing.net/th?id=OIP.HuHbi6D0rpzsTenMxWgfXgHaFj&amp;w=253&amp;h=184&amp;c=7&amp;o=5&amp;pid=1.7)</span><br><span class="line">#app &#123;</span><br><span class="line"></span><br><span class="line">        @import  url(&apos;./assets/aaa.scss&apos;); // 引入单独的scss文件</span><br><span class="line"></span><br><span class="line">        font-family: &apos;Avenir&apos;, Helvetica, Arial, sans-serif;</span><br><span class="line"></span><br><span class="line">        -webkit-font-smoothing: antialiased;</span><br><span class="line"></span><br><span class="line">        -moz-osx-font-smoothing: grayscale;</span><br><span class="line"></span><br><span class="line">        text-align: center;</span><br><span class="line"></span><br><span class="line">        color: #2c3e50;</span><br><span class="line"></span><br><span class="line">        margin-top: 60px;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="这样就很愉快的完成了！"><a href="#这样就很愉快的完成了！" class="headerlink" title="这样就很愉快的完成了！"></a>这样就很愉快的完成了！</h4><h4 id="使用Sass同理"><a href="#使用Sass同理" class="headerlink" title="使用Sass同理"></a>使用Sass同理</h4><p><code>## Sass使用</code></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;img src=&quot;/images/avatar.jpg&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;在Vue-CLI脚手架中使用scss&quot;&gt;&lt;a href=&quot;#在Vue-CLI脚手架中使用scss&quot; class=&quot;headerlink&quot; title=&quot;在Vue CLI脚
+        &lt;h2 id=&quot;在Vue-CLI脚手架中使用scss&quot;&gt;&lt;a href=&quot;#在Vue-CLI脚手架中使用scss&quot; class=&quot;headerlink&quot; title=&quot;在Vue CLI脚手架中使用scss&quot;&gt;&lt;/a&gt;在Vue CLI脚手架中使用scss&lt;/h2&gt;&lt;p&gt;今天学习vu
       
     
     </summary>
@@ -38,9 +37,9 @@
       <category term="Vue" scheme="http://aemple.top/categories/Vue/"/>
     
     
-      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
-    
       <category term="分享" scheme="http://aemple.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
     
   </entry>
   
@@ -65,9 +64,9 @@
       <category term="生活" scheme="http://aemple.top/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
-    
       <category term="分享" scheme="http://aemple.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
     
   </entry>
   
@@ -127,25 +126,24 @@
     <link href="http://aemple.top/2018/03/19/packParcelOne/"/>
     <id>http://aemple.top/2018/03/19/packParcelOne/</id>
     <published>2018-03-19T14:01:32.000Z</published>
-    <updated>2018-03-20T10:01:51.440Z</updated>
+    <updated>2018-11-01T11:31:02.902Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="基本概况"><a href="#基本概况" class="headerlink" title="基本概况"></a>基本概况</h1><p>最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但是很受欢迎，看下图就知道它到底有多火了。</p><p><img src="/images/picblog/parcel1.png" alt="图片"></p><p><strong>这么火的东西我们怎么能不学呢？那么它到底火在哪儿？来看看我的示例分析(教程)吧！！！</strong></p><h2 id="官方介绍地址"><a href="#官方介绍地址" class="headerlink" title="官方介绍地址"></a>官方介绍地址</h2><p><strong>官方地址：</strong><a href="https://parceljs.org/" target="_blank" rel="noopener">https://parceljs.org/</a></p><p><strong>GitHub地址：</strong><a href="https://github.com/parcel-bundler/parcel" target="_blank" rel="noopener">https://github.com/parcel-bundler/parcel</a></p><h1 id="Parcel-VS-Webpack"><a href="#Parcel-VS-Webpack" class="headerlink" title="Parcel VS Webpack"></a>Parcel VS Webpack</h1><h2 id="听我扯一扯"><a href="#听我扯一扯" class="headerlink" title="听我扯一扯"></a>听我扯一扯</h2><p>介绍这个库之前，我来说一下我个人觉得 webpack 的一些不好的地方（相对于 Parcel）。</p><p>  1、需要写配置文件（webpack.config.js），可能每使用一个功能，比如加载图片或 css，都要添加配置，要维护配置文件，而 Parcel 不需要。</p><p>  2、感觉编译或加载速度有些慢，特别是库多或项目复杂的时候，虽然有一些办法代码拆分的方法可以解决，比如 CommonsChunkPlugin 或 DLLPlugin 之类的，但这些方法有些复杂。</p><h2 id="官方数据"><a href="#官方数据" class="headerlink" title="官方数据"></a>官方数据</h2><p>  <strong>打包速度</strong></p><p>  真的飞一般的感觉吧！！！</p><p>  <img src="/images/picblog/parcel2.png" alt="图片"></p><h2 id="学习成本"><a href="#学习成本" class="headerlink" title="学习成本"></a>学习成本</h2><p> webpack需要一定的时间去学习如何使用而 Parcel 有很多优点，可以不使用配置文件，也就是说你只管写代码，它会自动运行，很智能化，打个比方吧，比如在 webpack 中如果要处理 css，那得要安装和加载一个 css 的 loader，然后配置文件写上几行，可是 Parcel 不需要，直接用就行。Parcel 学习起来比较简单，基本上可以说 “不用学习”，只是使用就可以了。<strong>除此之外</strong> 模块热替换和代码拆分的功能，Parcel 也有，还有，如果要你用 Parcel 写一个 react 的运行环境，可能不需要配置任何内容，只要安装几个 react 的包就可以用起来了。</p><p><strong>说了这么多，我还是要把官方对它的特性进行概括的图片放出来：</strong></p><p><img src="/images/picblog/parcel3.png" alt="图片"></p><blockquote><p><strong>说到这里小伙伴们是不是和我当初一样心动了呢？  下一篇博客我们一起上手玩起来吧！！！</strong></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="基本概况"><a href="#基本概况" class="headerlink" title="基本概况"></a>基本概况</h1><p>最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但是很受欢迎，看下图就知道它到底有多火了。</p><p><img src="/images/picblog/parcel1.png" alt="图片"></p><p><strong>这么火的东西我们怎么能不学呢？那么它到底火在哪儿？来看看我的示例分析(教程)吧！！！</strong><br><a id="more"></a> </p><h2 id="官方介绍地址"><a href="#官方介绍地址" class="headerlink" title="官方介绍地址"></a>官方介绍地址</h2><p><strong>官方地址：</strong><a href="https://parceljs.org/" target="_blank" rel="noopener">https://parceljs.org/</a></p><p><strong>GitHub地址：</strong><a href="https://github.com/parcel-bundler/parcel" target="_blank" rel="noopener">https://github.com/parcel-bundler/parcel</a></p><h1 id="Parcel-VS-Webpack"><a href="#Parcel-VS-Webpack" class="headerlink" title="Parcel VS Webpack"></a>Parcel VS Webpack</h1><h2 id="听我扯一扯"><a href="#听我扯一扯" class="headerlink" title="听我扯一扯"></a>听我扯一扯</h2><p>介绍这个库之前，我来说一下我个人觉得 webpack 的一些不好的地方（相对于 Parcel）。</p><p>  1、需要写配置文件（webpack.config.js），可能每使用一个功能，比如加载图片或 css，都要添加配置，要维护配置文件，而 Parcel 不需要。</p><p>  2、感觉编译或加载速度有些慢，特别是库多或项目复杂的时候，虽然有一些办法代码拆分的方法可以解决，比如 CommonsChunkPlugin 或 DLLPlugin 之类的，但这些方法有些复杂。</p><h2 id="官方数据"><a href="#官方数据" class="headerlink" title="官方数据"></a>官方数据</h2><p>  <strong>打包速度</strong></p><p>  真的飞一般的感觉吧！！！</p><p>  <img src="/images/picblog/parcel2.png" alt="图片"></p><h2 id="学习成本"><a href="#学习成本" class="headerlink" title="学习成本"></a>学习成本</h2><p> webpack需要一定的时间去学习如何使用而 Parcel 有很多优点，可以不使用配置文件，也就是说你只管写代码，它会自动运行，很智能化，打个比方吧，比如在 webpack 中如果要处理 css，那得要安装和加载一个 css 的 loader，然后配置文件写上几行，可是 Parcel 不需要，直接用就行。Parcel 学习起来比较简单，基本上可以说 “不用学习”，只是使用就可以了。<strong>除此之外</strong> 模块热替换和代码拆分的功能，Parcel 也有，还有，如果要你用 Parcel 写一个 react 的运行环境，可能不需要配置任何内容，只要安装几个 react 的包就可以用起来了。</p><p><strong>说了这么多，我还是要把官方对它的特性进行概括的图片放出来：</strong></p><p><img src="/images/picblog/parcel3.png" alt="图片"></p><blockquote><p><strong>说到这里小伙伴们是不是和我当初一样心动了呢？  下一篇博客我们一起上手玩起来吧！！！</strong></p></blockquote>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;基本概况&quot;&gt;&lt;a href=&quot;#基本概况&quot; class=&quot;headerlink&quot; title=&quot;基本概况&quot;&gt;&lt;/a&gt;基本概况&lt;/h1&gt;&lt;p&gt;最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但
-      
+      &lt;h1 id=&quot;基本概况&quot;&gt;&lt;a href=&quot;#基本概况&quot; class=&quot;headerlink&quot; title=&quot;基本概况&quot;&gt;&lt;/a&gt;基本概况&lt;/h1&gt;&lt;p&gt;最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但是很受欢迎，看下图就知道它到底有多火了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/picblog/parcel1.png&quot; alt=&quot;图片&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这么火的东西我们怎么能不学呢？那么它到底火在哪儿？来看看我的示例分析(教程)吧！！！&lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
       <category term="打包工具" scheme="http://aemple.top/categories/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
-    
       <category term="分享" scheme="http://aemple.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
     
   </entry>
   
@@ -170,9 +168,9 @@
       <category term="markdown" scheme="http://aemple.top/categories/markdown/"/>
     
     
-      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
-    
       <category term="分享" scheme="http://aemple.top/tags/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="导航" scheme="http://aemple.top/tags/%E5%AF%BC%E8%88%AA/"/>
     
   </entry>
   
