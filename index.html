@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  169
+                  191
                 </span>
               
 
@@ -441,7 +441,17 @@
       
         
           
-          在Vue CLI脚手架中使用scss今天学习vue当中遇到了如何配置scss的问题经过查证，写出记录
+          
+在Vue CLI脚手架中使用scss今天学习vue当中遇到了如何配置scss的问题经过查证，写出记录。
+第一步:
+npm install sass-loader node-sass
+或者
+yarn add sass-loader node-sass
+
+如果node-sass在Windows中安装失败(需要Python和C++构建工具），大家可以使用cnpm单独安装node-sass
+
+第二步:
+
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -624,7 +634,8 @@
         
           
           我的大学生活
-“准”大学生活:  高考后感觉身上的担子轻了，是到放松任性玩儿的时候了，于是高考后的六
+“准”大学生活:  高考后感觉身上的担子轻了，是到放松任性玩儿的时候了，于是高考后的六月七月都被我放肆的挥霍了。就在七月末的时候，突然冒出了一个奇怪的想法。
+  我想去找一份工作尝试着靠自己的能力来拿到一笔完完全全属于自己的money，但当时因为暑假已经不多了，所以在寻找了大概一个星期后也没有找到合适的。最后这个挺不错的想法，也被我否定了。剩下的时间，就回到了自己的家乡，开始着手准备
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -806,7 +817,8 @@
       
         
           
-          forEach从ES5开始 Javascript内置了forEach方法 用来遍历数组 对只能是数组
+          forEach从ES5开始 Javascript内置了forEach方法 用来遍历数组 对只能是数组！！！
+12345  let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]arr.forEach(function (val, index, arr) &#123;     // val是当前元素，index当前
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -991,7 +1003,11 @@
           首先什么是递归
 递归是一项非常重要的编程技巧，函数通过它调用其本身。 —msdn文档介绍
 
-举个例子
+举个例子,常用的乘阶。
+12345function factorial(i) &#123;	if (i === 1) return i;	return i* factorial(i - 1);&#125;console.log(factorial(5)); // 5*4*3*2*1
+分几个步骤:
+
+声明一个
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1173,7 +1189,11 @@
       
         
           
-          基本概况最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来
+          基本概况最近大家都在关注一个很流行的类似 webpack 的前端构建工具 Parcel。这个库刚出来没多久(截至目前发布几十天)，但是很受欢迎，看下图就知道它到底有多火了。
+
+这么火的东西我们怎么能不学呢？那么它到底火在哪儿？来看看我的示例分析(教程)吧！！！
+官方介绍地址官方地址：https://parceljs.org/
+GitHub地址：https://github.com/parcel-b
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1264,7 +1284,6 @@
               <p class="site-author-name" itemprop="name">Aemple</p>
               <p class="site-description motion-element" itemprop="description">Aemple的个人博客，主要涉及前端知识共享、实践教程、前沿技术共同学习等方面</p>
           </div>
-
           <nav class="site-state motion-element">
 
             
@@ -1380,7 +1399,6 @@
 
     </div>
   </aside>
-  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=110 src="//music.163.com/outchain/player?type=0&id=2494999624&auto=1&height=90"></iframe>
 
 
         
