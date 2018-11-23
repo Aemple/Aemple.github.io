@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://aemple.top/images/picblog/http-4.png">
 <meta property="og:image" content="http://aemple.top/images/picblog/http-6.png">
 <meta property="og:image" content="http://aemple.top/images/picblog/http-5.png">
-<meta property="og:updated_time" content="2018-11-11T09:21:05.051Z">
+<meta property="og:updated_time" content="2018-11-11T09:32:36.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈Http1.0&#x2F;Http1.1&#x2F;Http2.0&#x2F;Https">
 <meta name="twitter:image" content="http://aemple.top/images/picblog/http-1.png">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,461
+                  2,462
                 </span>
               
 
@@ -445,21 +445,30 @@
         <p><img src="/images/picblog/http-1.png" alt="图片"></p>
 <a id="more"></a>
 <h2 id="首先来看看Http的发展（此图来自-code小生）"><a href="#首先来看看Http的发展（此图来自-code小生）" class="headerlink" title="首先来看看Http的发展（此图来自 code小生）"></a>首先来看看Http的发展（此图来自 code小生）</h2><p><img src="/images/picblog/http-2.png" alt="图片"><br>HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议，最后一个就是2015年发布的http2.0。</p>
-<h2 id="HTTP-1-0-→-HTTP-1-1"><a href="#HTTP-1-0-→-HTTP-1-1" class="headerlink" title="HTTP 1.0 → HTTP 1.1"></a>HTTP 1.0 → HTTP 1.1</h2><h3 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h3><p><strong>HTTP 1.1</strong>默认支持长连接，减少了TCP连接次数，节约开销。</p>
+<hr>
+<hr>
+<hr>
+<h2 id="HTTP-1-0-→-HTTP-1-1"><a href="#HTTP-1-0-→-HTTP-1-1" class="headerlink" title="HTTP 1.0 → HTTP 1.1"></a>HTTP 1.0 → HTTP 1.1</h2><h3 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a><em>长连接</em></h3><p><strong>HTTP 1.1</strong>默认支持长连接，减少了TCP连接次数，节约开销。</p>
 <p><strong>HTTP 1.0</strong>所保持的TCP每次只能处理一个请求，最典型的就是pipline管线化模型，虽然能一次性接收多个请求，但是还是得按顺序一次处理一个请求，这样很容易造成后续请求等待前序请求完成，造成阻塞，也就是我们常说的”线头阻塞”。</p>
 <p><strong>总结：HTTP 1.0需要使用keep-alive参数来告知服务器建立长连接，而HTTP 1.1默认支持长连接，减少了TCP连接次数，减少了开销和延迟！！！</strong></p>
-<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p><strong>HTTP1.0</strong>中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准。</p>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="_缓存_"></a>_缓存_</h3><p><strong>HTTP1.0</strong>中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准。</p>
 <p><strong>HTTP1.1</strong>则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略</p>
-<h3 id="新增状态码："><a href="#新增状态码：" class="headerlink" title="新增状态码："></a>新增状态码：</h3><p><strong>HTTP1.1</strong> 中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删！</p>
-<h3 id="http1-1带宽优化"><a href="#http1-1带宽优化" class="headerlink" title="http1.1带宽优化"></a>http1.1带宽优化</h3><p><strong>HTTP 1.1</strong>支持只发送header信息(不带任何body信息)，如果服务器认为客户端有权限请求服务器，则返回100，否则返回401。客户端如果接受到100，才开始把请求body发送到服务器。这样当服务器返回401的时候，客户端就可以不用发送请求body了，节约了带宽。另外HTTP还支持传送内容的一部分。这样当客户端已经有一部分的资源后，只需要跟服务器请求另外的部分资源即可。这是支持文件断点续传的基础。HTTP1.1在请求头引入了<strong>range</strong>头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。<br><img src="/images/picblog/http-3.png" alt="图片"></p>
-<h3 id="HOST域"><a href="#HOST域" class="headerlink" title="HOST域"></a>HOST域</h3><p><strong>HTTP 1.1</strong>支持host域，服务端可以通过host域设置多个虚拟站点来共享一个ip和端口。因为随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。<br><strong>HTTP1.0</strong>中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）</p>
-<h2 id="HTTP-1-1-→-HTTP-2-0"><a href="#HTTP-1-1-→-HTTP-2-0" class="headerlink" title="HTTP 1.1 → HTTP 2.0"></a>HTTP 1.1 → HTTP 2.0</h2><h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h3><p><strong>HTTP 2.0</strong>使用多路复用技术，使用一个TCP连接<strong>_并发_</strong>处理多个请求，不但节约了开销而且可处理请求的数量也比HTTP 1.1大了很多。</p>
+<h3 id="新增状态码："><a href="#新增状态码：" class="headerlink" title="新增状态码："></a><em>新增状态码</em>：</h3><p><strong>HTTP1.1</strong> 中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删！</p>
+<h3 id="http1-1带宽优化"><a href="#http1-1带宽优化" class="headerlink" title="http1.1带宽优化"></a><em>http1.1带宽优化</em></h3><p><strong>HTTP 1.1</strong>支持只发送header信息(不带任何body信息)，如果服务器认为客户端有权限请求服务器，则返回100，否则返回401。客户端如果接受到100，才开始把请求body发送到服务器。这样当服务器返回401的时候，客户端就可以不用发送请求body了，节约了带宽。另外HTTP还支持传送内容的一部分。这样当客户端已经有一部分的资源后，只需要跟服务器请求另外的部分资源即可。这是支持文件断点续传的基础。HTTP1.1在请求头引入了<strong>range</strong>头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。<br><img src="/images/picblog/http-3.png" alt="图片"></p>
+<h3 id="HOST域"><a href="#HOST域" class="headerlink" title="HOST域"></a><em>HOST域</em></h3><p><strong>HTTP 1.1</strong>支持host域，服务端可以通过host域设置多个虚拟站点来共享一个ip和端口。因为随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。<br><strong>HTTP1.0</strong>中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）</p>
+<hr>
+<hr>
+<hr>
+<h2 id="HTTP-1-1-→-HTTP-2-0"><a href="#HTTP-1-1-→-HTTP-2-0" class="headerlink" title="HTTP 1.1 → HTTP 2.0"></a>HTTP 1.1 → HTTP 2.0</h2><h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a><em>多路复用</em></h3><p><strong>HTTP 2.0</strong>使用多路复用技术，使用一个TCP连接<strong>_并发_</strong>处理多个请求，不但节约了开销而且可处理请求的数量也比HTTP 1.1大了很多。</p>
 <blockquote>
 <p>当然HTTP1.1也可以多建立几个TCP连接，来支持处理更多并发的请求，但是创建TCP连接本身也是有开销的。<br>TCP连接有一个预热和保护的过程，先检查数据是否传送成功，一旦成功过，则慢慢加大传输速度。因此对应瞬时并发的连接，服务器的响应就会变慢。所以最好能使用一个建立好的连接，并且这个连接可以支持瞬时并发的请求。</p>
 </blockquote>
-<h3 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a>头部压缩</h3><p>HTTP 1.1不支持header数据压缩，<strong>HTTP 2.0</strong>使用HPACK算法对header的数据进行压缩，使得数据传输更快。</p>
-<h3 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a>服务器推送</h3><p>当我们对支持<strong>HTTP 2.0</strong>的服务器请求数据额时候，服务器会顺便把一些客户端需要的资源一起推送到服务器，这种方式适用于加载静态资源，节约带宽。服务器端推送的这些资源其实存在客户端的某处地方，客户端直接从本地加载这些资源就可以了，不用走网络，速度自然是快很多的。</p>
+<h3 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a><em>头部压缩</em></h3><p>HTTP 1.1不支持header数据压缩，<strong>HTTP 2.0</strong>使用HPACK算法对header的数据进行压缩，使得数据传输更快。</p>
+<h3 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a><em>服务器推送</em></h3><p>当我们对支持<strong>HTTP 2.0</strong>的服务器请求数据额时候，服务器会顺便把一些客户端需要的资源一起推送到服务器，这种方式适用于加载静态资源，节约带宽。服务器端推送的这些资源其实存在客户端的某处地方，客户端直接从本地加载这些资源就可以了，不用走网络，速度自然是快很多的。</p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><img src="/images/picblog/http-4.png" alt="图片"></p>
+<hr>
+<hr>
+<hr>
 <h2 id="HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）"><a href="#HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）" class="headerlink" title="HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）"></a>HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）</h2><p><img src="/images/picblog/http-6.png" alt="图片"><br>在讲 HTTPS 之前，我们先来看看 HTTP 有哪些不足：</p>
 <ul>
 <li>使用明文通信，内容可能会被窃听</li>
@@ -586,8 +595,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/12/vue/" rel="next" title="Vue CLI使用scss">
-                <i class="fa fa-chevron-left"></i> Vue CLI使用scss
+              <a href="/2018/06/08/note-gxn/" rel="next" title="浅谈Http1.0/Http1.1/Http2.0/Https">
+                <i class="fa fa-chevron-left"></i> 浅谈Http1.0/Http1.1/Http2.0/Https
               </a>
             
           </div>
@@ -679,7 +688,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -791,7 +800,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先来看看Http的发展（此图来自-code小生）"><span class="nav-number">1.</span> <span class="nav-text">首先来看看Http的发展（此图来自 code小生）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-0-→-HTTP-1-1"><span class="nav-number">2.</span> <span class="nav-text">HTTP 1.0 → HTTP 1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长连接"><span class="nav-number">2.1.</span> <span class="nav-text">长连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">2.2.</span> <span class="nav-text">缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增状态码："><span class="nav-number">2.3.</span> <span class="nav-text">新增状态码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http1-1带宽优化"><span class="nav-number">2.4.</span> <span class="nav-text">http1.1带宽优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HOST域"><span class="nav-number">2.5.</span> <span class="nav-text">HOST域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-1-→-HTTP-2-0"><span class="nav-number">3.</span> <span class="nav-text">HTTP 1.1 → HTTP 2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多路复用"><span class="nav-number">3.1.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头部压缩"><span class="nav-number">3.2.</span> <span class="nav-text">头部压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器推送"><span class="nav-number">3.3.</span> <span class="nav-text">服务器推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）"><span class="nav-number">5.</span> <span class="nav-text">HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来谈谈“对称加密”和“非对称加密”的概念"><span class="nav-number">5.1.</span> <span class="nav-text">先来谈谈“对称加密”和“非对称加密”的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称加密"><span class="nav-number">5.1.1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称加密"><span class="nav-number">5.1.2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结：非对称相对更安全，但是性能要求更高！"><span class="nav-number">5.1.3.</span> <span class="nav-text">总结：非对称相对更安全，但是性能要求更高！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https加密方式"><span class="nav-number">5.2.</span> <span class="nav-text">https加密方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明公开密钥的正确性的证书"><span class="nav-number">5.3.</span> <span class="nav-text">证明公开密钥的正确性的证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能问题"><span class="nav-number">5.4.</span> <span class="nav-text">性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不都使用https"><span class="nav-number">5.5.</span> <span class="nav-text">为什么不都使用https</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先来看看Http的发展（此图来自-code小生）"><span class="nav-number">1.</span> <span class="nav-text">首先来看看Http的发展（此图来自 code小生）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-0-→-HTTP-1-1"><span class="nav-number">2.</span> <span class="nav-text">HTTP 1.0 → HTTP 1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长连接"><span class="nav-number">2.1.</span> <span class="nav-text">长连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">2.2.</span> <span class="nav-text">_缓存_</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增状态码："><span class="nav-number">2.3.</span> <span class="nav-text">新增状态码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http1-1带宽优化"><span class="nav-number">2.4.</span> <span class="nav-text">http1.1带宽优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HOST域"><span class="nav-number">2.5.</span> <span class="nav-text">HOST域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-1-→-HTTP-2-0"><span class="nav-number">3.</span> <span class="nav-text">HTTP 1.1 → HTTP 2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多路复用"><span class="nav-number">3.1.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头部压缩"><span class="nav-number">3.2.</span> <span class="nav-text">头部压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器推送"><span class="nav-number">3.3.</span> <span class="nav-text">服务器推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）"><span class="nav-number">5.</span> <span class="nav-text">HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来谈谈“对称加密”和“非对称加密”的概念"><span class="nav-number">5.1.</span> <span class="nav-text">先来谈谈“对称加密”和“非对称加密”的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称加密"><span class="nav-number">5.1.1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称加密"><span class="nav-number">5.1.2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结：非对称相对更安全，但是性能要求更高！"><span class="nav-number">5.1.3.</span> <span class="nav-text">总结：非对称相对更安全，但是性能要求更高！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https加密方式"><span class="nav-number">5.2.</span> <span class="nav-text">https加密方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明公开密钥的正确性的证书"><span class="nav-number">5.3.</span> <span class="nav-text">证明公开密钥的正确性的证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能问题"><span class="nav-number">5.4.</span> <span class="nav-text">性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不都使用https"><span class="nav-number">5.5.</span> <span class="nav-text">为什么不都使用https</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -825,7 +834,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.6k</span>
+    <span title="Site words total count">6.7k</span>
   
 </div>
 
