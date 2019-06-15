@@ -90,20 +90,18 @@
 
 <meta name="keywords" content="分享">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈Http1.0&#x2F;Http1.1&#x2F;Http2.0&#x2F;Https">
-<meta property="og:url" content="http://aemple.top/2018/06/08/http/index.html">
+<meta property="og:title" content="UnderScore源码看防抖和节流">
+<meta property="og:url" content="http://aemple.top/2019/01/12/underscord/index.html">
 <meta property="og:site_name" content="Aemple">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://aemple.top/images/picblog/http-1.png">
-<meta property="og:image" content="http://aemple.top/images/picblog/http-2.png">
-<meta property="og:image" content="http://aemple.top/images/picblog/http-3.png">
-<meta property="og:image" content="http://aemple.top/images/picblog/http-4.png">
-<meta property="og:image" content="http://aemple.top/images/picblog/http-6.png">
-<meta property="og:image" content="http://aemple.top/images/picblog/http-5.png">
-<meta property="og:updated_time" content="2018-11-11T09:32:36.724Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/1/21/1686fb65263785ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/1/21/1686fbfff6086228?w=474&h=336&f=jpeg&s=18241">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/1/21/1686fd886183abdd?w=300&h=300&f=jpeg&s=10547">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/1/22/168744e019f2690c?w=1600&h=1067&f=jpeg&s=96084">
+<meta property="og:updated_time" content="2019-06-15T12:48:01.324Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浅谈Http1.0&#x2F;Http1.1&#x2F;Http2.0&#x2F;Https">
-<meta name="twitter:image" content="http://aemple.top/images/picblog/http-1.png">
+<meta name="twitter:title" content="UnderScore源码看防抖和节流">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/1/21/1686fb65263785ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://aemple.top/2018/06/08/http/"/>
+  <link rel="canonical" href="http://aemple.top/2019/01/12/underscord/"/>
 
 
 
 
 
-  <title>浅谈Http1.0/Http1.1/Http2.0/Https | Aemple</title>
+  <title>UnderScore源码看防抖和节流 | Aemple</title>
   
 
 
@@ -322,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://aemple.top/2018/06/08/http/">
+    <link itemprop="mainEntityOfPage" href="http://aemple.top/2019/01/12/underscord/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aemple">
@@ -339,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">浅谈Http1.0/Http1.1/Http2.0/Https</h1>
+          <h1 class="post-title" itemprop="name headline">UnderScore源码看防抖和节流</h1>
         
 
         <div class="post-meta">
@@ -351,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-08T12:27:03+08:00">
-                2018-06-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T16:08:22+08:00">
+                2019-01-12
               </time>
             
 
@@ -374,8 +372,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
+                  <a href="/categories/大前端/" itemprop="url" rel="index">
+                    <span itemprop="name">大前端</span>
                   </a>
                 </span>
 
@@ -405,7 +403,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,462
+                  1,564
                 </span>
               
 
@@ -421,7 +419,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  7
                 </span>
               
             </div>
@@ -442,93 +440,27 @@
       
 
       
-        <p><img src="/images/picblog/http-1.png" alt="图片"></p>
-<a id="more"></a>
-<h2 id="首先来看看Http的发展（此图来自-code小生）"><a href="#首先来看看Http的发展（此图来自-code小生）" class="headerlink" title="首先来看看Http的发展（此图来自 code小生）"></a>首先来看看Http的发展（此图来自 code小生）</h2><p><img src="/images/picblog/http-2.png" alt="图片"><br>HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议，最后一个就是2015年发布的http2.0。</p>
-<hr>
-<hr>
-<hr>
-<h2 id="HTTP-1-0-→-HTTP-1-1"><a href="#HTTP-1-0-→-HTTP-1-1" class="headerlink" title="HTTP 1.0 → HTTP 1.1"></a>HTTP 1.0 → HTTP 1.1</h2><h3 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a><em>长连接</em></h3><p><strong>HTTP 1.1</strong>默认支持长连接，减少了TCP连接次数，节约开销。</p>
-<p><strong>HTTP 1.0</strong>所保持的TCP每次只能处理一个请求，最典型的就是pipline管线化模型，虽然能一次性接收多个请求，但是还是得按顺序一次处理一个请求，这样很容易造成后续请求等待前序请求完成，造成阻塞，也就是我们常说的”线头阻塞”。</p>
-<p><strong>总结：HTTP 1.0需要使用keep-alive参数来告知服务器建立长连接，而HTTP 1.1默认支持长连接，减少了TCP连接次数，减少了开销和延迟！！！</strong></p>
-<h3 id="缓存"><a href="#缓存" class="headerlink" title="_缓存_"></a>_缓存_</h3><p><strong>HTTP1.0</strong>中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准。</p>
-<p><strong>HTTP1.1</strong>则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略</p>
-<h3 id="新增状态码："><a href="#新增状态码：" class="headerlink" title="新增状态码："></a><em>新增状态码</em>：</h3><p><strong>HTTP1.1</strong> 中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删！</p>
-<h3 id="http1-1带宽优化"><a href="#http1-1带宽优化" class="headerlink" title="http1.1带宽优化"></a><em>http1.1带宽优化</em></h3><p><strong>HTTP 1.1</strong>支持只发送header信息(不带任何body信息)，如果服务器认为客户端有权限请求服务器，则返回100，否则返回401。客户端如果接受到100，才开始把请求body发送到服务器。这样当服务器返回401的时候，客户端就可以不用发送请求body了，节约了带宽。另外HTTP还支持传送内容的一部分。这样当客户端已经有一部分的资源后，只需要跟服务器请求另外的部分资源即可。这是支持文件断点续传的基础。HTTP1.1在请求头引入了<strong>range</strong>头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。<br><img src="/images/picblog/http-3.png" alt="图片"></p>
-<h3 id="HOST域"><a href="#HOST域" class="headerlink" title="HOST域"></a><em>HOST域</em></h3><p><strong>HTTP 1.1</strong>支持host域，服务端可以通过host域设置多个虚拟站点来共享一个ip和端口。因为随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。<br><strong>HTTP1.0</strong>中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）</p>
-<hr>
-<hr>
-<hr>
-<h2 id="HTTP-1-1-→-HTTP-2-0"><a href="#HTTP-1-1-→-HTTP-2-0" class="headerlink" title="HTTP 1.1 → HTTP 2.0"></a>HTTP 1.1 → HTTP 2.0</h2><h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a><em>多路复用</em></h3><p><strong>HTTP 2.0</strong>使用多路复用技术，使用一个TCP连接<strong>_并发_</strong>处理多个请求，不但节约了开销而且可处理请求的数量也比HTTP 1.1大了很多。</p>
-<blockquote>
-<p>当然HTTP1.1也可以多建立几个TCP连接，来支持处理更多并发的请求，但是创建TCP连接本身也是有开销的。<br>TCP连接有一个预热和保护的过程，先检查数据是否传送成功，一旦成功过，则慢慢加大传输速度。因此对应瞬时并发的连接，服务器的响应就会变慢。所以最好能使用一个建立好的连接，并且这个连接可以支持瞬时并发的请求。</p>
-</blockquote>
-<h3 id="头部压缩"><a href="#头部压缩" class="headerlink" title="头部压缩"></a><em>头部压缩</em></h3><p>HTTP 1.1不支持header数据压缩，<strong>HTTP 2.0</strong>使用HPACK算法对header的数据进行压缩，使得数据传输更快。</p>
-<h3 id="服务器推送"><a href="#服务器推送" class="headerlink" title="服务器推送"></a><em>服务器推送</em></h3><p>当我们对支持<strong>HTTP 2.0</strong>的服务器请求数据额时候，服务器会顺便把一些客户端需要的资源一起推送到服务器，这种方式适用于加载静态资源，节约带宽。服务器端推送的这些资源其实存在客户端的某处地方，客户端直接从本地加载这些资源就可以了，不用走网络，速度自然是快很多的。</p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><img src="/images/picblog/http-4.png" alt="图片"></p>
-<hr>
-<hr>
-<hr>
-<h2 id="HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）"><a href="#HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）" class="headerlink" title="HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）"></a>HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）</h2><p><img src="/images/picblog/http-6.png" alt="图片"><br>在讲 HTTPS 之前，我们先来看看 HTTP 有哪些不足：</p>
-<ul>
-<li>使用明文通信，内容可能会被窃听</li>
-<li>不验证通信双方身份，有可能遭遇伪装</li>
-<li>无法证明报文的完整性，内容可能遭到篡改</li>
-</ul>
-<p>为了解决这些不足，所以HTTPS 应运而生，先看看https的特性：</p>
-<ul>
-<li>TLS/SSL内容加密</li>
-<li>数字证书(CA)验明身份: 防范中间人攻击</li>
-<li>MD5、SHA-1等散列值方法防止信息篡改（中间人攻击：运营商等）</li>
-</ul>
-<h3 id="先来谈谈“对称加密”和“非对称加密”的概念"><a href="#先来谈谈“对称加密”和“非对称加密”的概念" class="headerlink" title="先来谈谈“对称加密”和“非对称加密”的概念"></a>先来谈谈“对称加密”和“非对称加密”的概念</h3><h4 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h4><blockquote>
-<p>所谓的“对称加密技术”，意思就是说：“加密”和“解密”使用相同的密钥。这个比较好理解，就好比你用 7zip 或 WinRAR 创建一个带密码（口令）的加密压缩包，当你下次要把这个压缩文件解开的时候，你需要输入同样的密码，在这个例子中，密码/口令就如同刚才说的“密钥”。</p>
-</blockquote>
-<blockquote>
-<p><strong>对称加密是最快速、最简单的一种加密方式</strong>，加密（encryption）与解密（decryption）用的是同样的密钥（secret key），这种方法在密码学中叫做对称加密算法，对称加密有很多种算法，由于它效率很高，所以被广泛使用在很多加密协议的核心当中。</p>
-</blockquote>
-<h4 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h4><blockquote>
-<p>所谓的“非对称加密技术”，意思就是说：<strong>“加密”和“解密”使用不同的密钥</strong>，这玩意儿比较难理解，也比较难想到，当年“非对称加密”的发明，还被誉为“密码学”历史上的一次革命。<br>非对称加密为数据的加密与解密提供了一个非常安全的方法，它使用了一对密钥，公钥（public key）和私钥（private key），私钥只能由一方安全保管，不能外泄，而公钥则可以发给任何请求它的人，非对称加密使用这对密钥中的一个进行加密，而解密则需要另一个密钥。</p>
-</blockquote>
-<h4 id="总结：非对称相对更安全，但是性能要求更高！"><a href="#总结：非对称相对更安全，但是性能要求更高！" class="headerlink" title="总结：非对称相对更安全，但是性能要求更高！"></a>总结：非对称相对更安全，但是性能要求更高！</h4><h3 id="https加密方式"><a href="#https加密方式" class="headerlink" title="https加密方式"></a>https加密方式</h3><p>虽然TLS/SSL采用公开密钥这种非对称加密方式，但是HTTPS并不是全部使用非对称加密，而是使用混合加密方式，即：<strong>公开密钥(非对称加密)+共享密钥(对称加密)</strong></p>
-<p>因为公开密钥与共享密钥加密相比，其处理速度要慢很多。所以HTTPS冲锋利用了两者各自的优势，将多种方法组合起来用于通信。<em><strong>https在交换密钥环节使用公开密钥加密方式，之后建立的通信交换报文阶段则使用共享密钥加密方式</strong></em><br><img src="/images/picblog/http-5.png" alt="图片"></p>
-<h3 id="证明公开密钥的正确性的证书"><a href="#证明公开密钥的正确性的证书" class="headerlink" title="证明公开密钥的正确性的证书"></a>证明公开密钥的正确性的证书</h3><p>遗憾的是, 公开密钥加密方式还是存在一些问题的, 那就是无法证明公开密钥本身就是货真价实的公开密钥. 比如, 正准备和某台服务器建立公开密钥加密方式下的通信时, 如何证明收到的公开密钥就是原本预想的那台服务器发行的公开密钥. 或许在公开密钥传输途中, 真正的公开密钥已经被攻击者替换了.</p>
-<p>为了解决上述问题, 可以使用有<strong>数字证书认证机构（CA）</strong>和<strong>其他相关机关颁发的公开密钥证书</strong></p>
-<p>基本流程为:</p>
-<ul>
-<li>1.服务器把自己的公开密钥登录至数字证书认证机构</li>
-<li>2.数字证书认证机构用自己的私有密钥向服务器的公开密钥署数字签名并颁发公钥证书</li>
-<li>3.客户端拿到服务器的公钥证书后, 使用数字证书认证机构的公开密钥, 向数字证书认证机构验证公钥证书上的数字签名, 以确认服务器的公开密钥的真实性</li>
-<li>4.使用服务器的公开密钥对报文加密后发送</li>
-<li>5.服务器用私有密钥对报文解密</li>
-</ul>
-<h3 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h3><p>通常我们会认为，使用HTTPS会导致网站加载速度变慢。实际上，只要我们合理优化使用HTTPS过程，使用HTTPS可能会比使用HTTP还快！<br><strong>使用HTTPS相比于HTTP所增加的延迟点：</strong></p>
-<ul>
-<li><p>HTTP 302 跳转到 HTTPS 的耗时</p>
-</li>
-<li><p>CPU 进行 RSA 加解密运算的耗时</p>
-</li>
-<li><p>请求和验证 CA 所花的时间</p>
-</li>
-</ul>
-<p><strong>优化方式：</strong></p>
-<ul>
-<li><p>使用 HSTS 技术，去掉从80跳转到443的跳转(HSTS使用的是内部307跳转技术，不会产生多余的网络请求) PS：302 和 307 效果相同，只是307强制使用post</p>
-</li>
-<li><p>使用专门的加解密硬件处理加解密，减轻CPU负担。这样不仅减少了处理时间，所能承受的qps也会增加。</p>
-</li>
-<li><p>减少证书链，减少 CA 请求时间</p>
-</li>
-<li><p>session复用，减少建立连接的次数</p>
-</li>
-</ul>
-<h3 id="为什么不都使用https"><a href="#为什么不都使用https" class="headerlink" title="为什么不都使用https"></a>为什么不都使用https</h3><ul>
-<li>性能问题</li>
-<li>金钱问题</li>
-</ul>
-<blockquote>
-<p>参考<br><a href="https://www.cnblogs.com/heluan/p/8620312.html" target="_blank" rel="noopener">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a><br><a href="http://www.mahaixiang.cn/internet/1522.html" target="_blank" rel="noopener">HTTP、SSL/TLS和HTTPS协议的区别与联系</a></p>
-</blockquote>
+        <p><img src="https://user-gold-cdn.xitu.io/2019/1/21/1686fb65263785ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="图片"></p>
+<a id="more"></a> 
+<h2 id="龟兔赛跑（快不一定好，慢也不一定差）"><a href="#龟兔赛跑（快不一定好，慢也不一定差）" class="headerlink" title="龟兔赛跑（快不一定好，慢也不一定差）"></a>龟兔赛跑（快不一定好，慢也不一定差）</h2><p>  相信这事一个大家都可以耳熟能详的例子了，兔子跑得很快,这是他胜利的优势，但是同时也是”快”让它有了骄傲的思想，导致自己轻敌儿错失了胜利的机会。</p>
+<p>  乌龟跑得很慢，但是他很谦虚，一步一个脚印，稳定向前抓住机遇取得了胜利！</p>
+<h2 id="浏览器里的”龟兔赛跑”"><a href="#浏览器里的”龟兔赛跑”" class="headerlink" title="浏览器里的”龟兔赛跑”"></a>浏览器里的”龟兔赛跑”</h2><p>  我们在浏览器中时常会遇到一些<strong>高频率事件：onscroll oninput resize onkeyup keydown…</strong> 那么当遇到这些的时候我们到底应该让它像”兔子一样快速执行”,还是像”乌龟一样稳步向前”呢？ 但是如果快速执行又可能会在较大的项目或者低版本浏览器中造成页面卡顿不流畅影响用户体验（如不理解请谷歌搜索浏览器渲染过程+重绘、回流）！而像乌龟一样稳步向前造成卡顿的几率会小很多，而且对于用户使用的体验基本毫无影响！所以我们还是稳步向前为好！<br><img src="https://user-gold-cdn.xitu.io/2019/1/21/1686fbfff6086228?w=474&amp;h=336&amp;f=jpeg&amp;s=18241" alt=""></p>
+<h3 id="那么怎么做到稳步执行呢？"><a href="#那么怎么做到稳步执行呢？" class="headerlink" title="那么怎么做到稳步执行呢？"></a>那么怎么做到稳步执行呢？</h3><p><strong>优化高频事件 》》降低代码执行频率</strong></p>
+<h3 id="那么怎么做到降低代码执行频率呢？"><a href="#那么怎么做到降低代码执行频率呢？" class="headerlink" title="那么怎么做到降低代码执行频率呢？"></a>那么怎么做到降低代码执行频率呢？</h3><p><strong>降低代码执行频率 》》 throttle（节流）|| debounce（防抖）</strong></p>
+<h2 id="throttle（节流）和-debounce（防抖）"><a href="#throttle（节流）和-debounce（防抖）" class="headerlink" title="throttle（节流）和 debounce（防抖）"></a>throttle（节流）和 debounce（防抖）</h2><p><img src="https://user-gold-cdn.xitu.io/2019/1/21/1686fd886183abdd?w=300&amp;h=300&amp;f=jpeg&amp;s=10547" alt=""></p>
+<p> 请先记住两个概念:<strong>节流</strong>&gt;间隔固定时间执行，<strong>防抖</strong>&gt;你不停止我就不执行。请您记住，记住，记住！！！ 不要再分不清这两个词语哪个是哪个了！！！！</p>
+<h3 id="throttle（节流）"><a href="#throttle（节流）" class="headerlink" title="throttle（节流）"></a>throttle（节流）</h3><p> 直接上代码，咱们先看一个简单版本容易理解的。<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, threshhold=<span class="number">150</span></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> timeout;<span class="comment">//方便清除定时器</span></span><br><span class="line"> <span class="keyword">var</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>;<span class="comment">//开始的时间</span></span><br><span class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>, curr = <span class="keyword">new</span> <span class="built_in">Date</span>() - <span class="number">0</span></span><br><span class="line"> clearTimeout(timeout)<span class="comment">//总是干掉事件回调（与后面的“让方法在脱离事件后也能执行一次”对应）</span></span><br><span class="line"> <span class="keyword">if</span>(curr - start &gt;= threshhold)&#123; </span><br><span class="line">     fn.apply(context, args) </span><br><span class="line">     start = curr <span class="comment">//其实到这里我们就已经实现了节流的逻辑</span></span><br><span class="line"> &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//让方法在脱离事件后也能执行一次(比如我们最后一次点击一个按钮，点击后按照上面的逻辑当小于threshhold是不会执行这次点击事件的回调函数的，所以加上这个定时器确保最后一次无论间隔时间多大都可以执行)</span></span><br><span class="line">     timeout = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        fn.apply(context, args) </span><br><span class="line">     &#125;, threshhold);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> logger = throttle(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(e.pageX, e.pageY)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定监听</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#btn"</span>).addEventListener(<span class="string">'click'</span>,logger);</span><br></pre></td></tr></table></figure></p>
+<p>下面看看UnderScore对throttle（节流）的封装<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait, options</span>) </span>&#123;；</span><br><span class="line">      <span class="keyword">let</span> args, context, previous = <span class="number">0</span>, timeout;</span><br><span class="line">      <span class="keyword">let</span> later = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">//最后一次定时器中的回调</span></span><br><span class="line">        func.apply(context, args);</span><br><span class="line">        args = context = <span class="literal">null</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> throttled = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        args = <span class="built_in">arguments</span>;</span><br><span class="line">        context = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> now = <span class="built_in">Date</span>.now(); <span class="comment">// 现在的时间</span></span><br><span class="line">        <span class="keyword">let</span> remaning = wait - (now - previous);</span><br><span class="line">        <span class="keyword">if</span> (remaning &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (timeout) &#123;<span class="comment">//多次连续点击的时候就清除定时器，因为它不是最后一次点击，只有最后一次点击后才会保留定时器</span></span><br><span class="line">            clearTimeout(timeout);</span><br><span class="line">            timeout = <span class="literal">null</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          func.apply(context, args);</span><br><span class="line">          previous = now;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!timeout &amp;&amp; options.trailing !== <span class="literal">false</span>) &#123;<span class="comment">//如果我们不传trailing那么就是undefined同样不等于flase</span></span><br><span class="line">        <span class="comment">//先判断是否存在timeout，存在就不增加定时器，避免多次定义定时器</span></span><br><span class="line">          timeout = setTimeout(later, remaning);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> throttled;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">logger</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'logger'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//参数trailiing：达到让最后一次事件触发后回调方法还是能执行的效果</span></span><br><span class="line">    btn.addEventListener(<span class="string">'click'</span>, throttle(logger, <span class="number">1000</span>, &#123; <span class="attr">trailiing</span>: <span class="literal">true</span> &#125;));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//参数leading：达到让第一次事件触发后不立刻执行回调</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">func, wait, options</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> args, context, previous = <span class="number">0</span>, timeout;</span><br><span class="line">      <span class="keyword">let</span> later = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        previous = options.leading === <span class="literal">false</span> ? <span class="number">0</span> : <span class="built_in">Date</span>.now();</span><br><span class="line">        <span class="comment">//第二步：定时器回调中让previous回归正常</span></span><br><span class="line">        func.apply(context, args);</span><br><span class="line">        args = context = <span class="literal">null</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">let</span> throttled = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        args = <span class="built_in">arguments</span>;</span><br><span class="line">        context = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> now = <span class="built_in">Date</span>.now();</span><br><span class="line">        <span class="keyword">if</span> (!previous &amp;&amp; options.leading === <span class="literal">false</span>) previous = now;</span><br><span class="line">        <span class="comment">//第一步：使remaning一定大于0以此来达到让它走 else if，也就是定义定时器延迟处理事件。</span></span><br><span class="line">        <span class="keyword">let</span> remaning = wait - (now - previous);</span><br><span class="line">        <span class="keyword">if</span> (remaning &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (timeout) &#123;</span><br><span class="line">            clearTimeout(timeout);</span><br><span class="line">            timeout = <span class="literal">null</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          func.apply(context, args);</span><br><span class="line">          previous = now;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!timeout &amp;&amp; options.trailing !== <span class="literal">false</span>) &#123;</span><br><span class="line">          timeout = setTimeout(later, remaning);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> throttled;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">logger</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'logger'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// btn.addEventListener('click', throttle(logger, 1000, &#123; trailiing: true &#125;));</span></span><br><span class="line">    <span class="comment">// 延迟第一次点击 是不生效的</span></span><br><span class="line">    btn.addEventListener(<span class="string">'click'</span>, throttle(logger, <span class="number">1000</span>, &#123; <span class="attr">leading</span>: <span class="literal">false</span> &#125;));</span><br></pre></td></tr></table></figure></p>
+<p> 此处是自己对UnderScore中throttle源码的简单重写。如有不懂的请私信我。。</p>
+<h3 id="debounce（防抖）"><a href="#debounce（防抖）" class="headerlink" title="debounce（防抖）"></a>debounce（防抖）</h3><p> 防抖实现十分简单<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func,wait</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> timeout;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearTimeout(timeout); <span class="comment">//有定时器就先清掉，始终保证只有一个定时器</span></span><br><span class="line">        timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          func.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">          timeout = <span class="literal">null</span>;</span><br><span class="line">        &#125;, wait);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">logger</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'logger'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    btn.addEventListener(<span class="string">'click'</span>, debounce(logger,<span class="number">1000</span>));</span><br></pre></td></tr></table></figure></p>
+<p>但是呢，这样又有点bug，那就是我们点击第一次也要等很久的定时器时间间隔才可以看到效果，而我们有时会希望的是点击了马上就有效果。</p>
+<p>下面看看UnderScore对 debounce（防抖）的封装<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">func,wait,immediate</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">let</span> timeout;</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        clearTimeout(timeout);</span><br><span class="line">        <span class="keyword">if</span>(immediate)&#123;</span><br><span class="line">          <span class="keyword">let</span> callNow = !timeout;  <span class="comment">//第一次点击的话timeout就是undefined取反就是true，就会执行下一行，第二次点击的话就timeout不为空就不会按照原来的逻辑执行了。这样也就达到了点击第一次立即执行的效果。</span></span><br><span class="line">          <span class="keyword">if</span>(callNow) func.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">          func.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">          timeout = <span class="literal">null</span>;</span><br><span class="line">        &#125;, wait);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">logger</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'logger'</span>,e);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 第三个参数 表示首次 先触发一下</span></span><br><span class="line">    btn.addEventListener(<span class="string">'click'</span>, debounce(logger,<span class="number">1000</span>,<span class="literal">true</span>));</span><br></pre></td></tr></table></figure></p>
+<p><strong>上面就是UnderScore对节流、防抖的基本实现了，当然还有一个取消的方法，但是那个很简单可以自行去看一看</strong></p>
+<p>链接：<a href="https://github.com/jashkenas/underscore/blob/master/underscore.js" target="_blank" rel="noopener">https://github.com/jashkenas/underscore/blob/master/underscore.js</a></p>
+<h2 id="文章未完待续…"><a href="#文章未完待续…" class="headerlink" title="文章未完待续…"></a>文章未完待续…</h2><p>ToDo：（1）将文章思路再理一遍，配些动图和例子一步步的实现一下防抖节流</p>
+<p>ToDo：（2）将lodash的防抖节流一步步实现一遍</p>
+<p>PS：过年在家长膘，写得有点笼统 还望大佬们海涵</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/1/22/168744e019f2690c?w=1600&amp;h=1067&amp;f=jpeg&amp;s=96084" alt=""></p>
 
       
     </div>
@@ -595,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/06/js-arr/" rel="next" title="JS学习笔记--常用数组去重、伪数组转数组">
-                <i class="fa fa-chevron-left"></i> JS学习笔记--常用数组去重、伪数组转数组
+              <a href="/2018/11/19/requestAnimationFrame/" rel="next" title="JS漫威--requestAnimationFrame">
+                <i class="fa fa-chevron-left"></i> JS漫威--requestAnimationFrame
               </a>
             
           </div>
@@ -605,8 +537,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/21/ES6-let/" rel="prev" title="ES6之---读懂let才能少踩坑">
-                ES6之---读懂let才能少踩坑 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/02/2019kuangjia/" rel="prev" title="【译】2019年值得学习的顶尖JavaScript框架和要学习的主题">
+                【译】2019年值得学习的顶尖JavaScript框架和要学习的主题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -804,7 +736,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先来看看Http的发展（此图来自-code小生）"><span class="nav-number">1.</span> <span class="nav-text">首先来看看Http的发展（此图来自 code小生）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-0-→-HTTP-1-1"><span class="nav-number">2.</span> <span class="nav-text">HTTP 1.0 → HTTP 1.1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#长连接"><span class="nav-number">2.1.</span> <span class="nav-text">长连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">2.2.</span> <span class="nav-text">_缓存_</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增状态码："><span class="nav-number">2.3.</span> <span class="nav-text">新增状态码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http1-1带宽优化"><span class="nav-number">2.4.</span> <span class="nav-text">http1.1带宽优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HOST域"><span class="nav-number">2.5.</span> <span class="nav-text">HOST域</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-1-1-→-HTTP-2-0"><span class="nav-number">3.</span> <span class="nav-text">HTTP 1.1 → HTTP 2.0</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多路复用"><span class="nav-number">3.1.</span> <span class="nav-text">多路复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头部压缩"><span class="nav-number">3.2.</span> <span class="nav-text">头部压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器推送"><span class="nav-number">3.3.</span> <span class="nav-text">服务器推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-→-HTTPS-HTTPS-HTTP-TLS-SSL加密-认证-完整性保护-（80-443）"><span class="nav-number">5.</span> <span class="nav-text">HTTP → HTTPS     HTTPS = HTTP + TLS/SSL加密 + 认证 + 完整性保护 （80 443）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先来谈谈“对称加密”和“非对称加密”的概念"><span class="nav-number">5.1.</span> <span class="nav-text">先来谈谈“对称加密”和“非对称加密”的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对称加密"><span class="nav-number">5.1.1.</span> <span class="nav-text">对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非对称加密"><span class="nav-number">5.1.2.</span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结：非对称相对更安全，但是性能要求更高！"><span class="nav-number">5.1.3.</span> <span class="nav-text">总结：非对称相对更安全，但是性能要求更高！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https加密方式"><span class="nav-number">5.2.</span> <span class="nav-text">https加密方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明公开密钥的正确性的证书"><span class="nav-number">5.3.</span> <span class="nav-text">证明公开密钥的正确性的证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能问题"><span class="nav-number">5.4.</span> <span class="nav-text">性能问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不都使用https"><span class="nav-number">5.5.</span> <span class="nav-text">为什么不都使用https</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#龟兔赛跑（快不一定好，慢也不一定差）"><span class="nav-number">1.</span> <span class="nav-text">龟兔赛跑（快不一定好，慢也不一定差）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器里的”龟兔赛跑”"><span class="nav-number">2.</span> <span class="nav-text">浏览器里的”龟兔赛跑”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#那么怎么做到稳步执行呢？"><span class="nav-number">2.1.</span> <span class="nav-text">那么怎么做到稳步执行呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#那么怎么做到降低代码执行频率呢？"><span class="nav-number">2.2.</span> <span class="nav-text">那么怎么做到降低代码执行频率呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#throttle（节流）和-debounce（防抖）"><span class="nav-number">3.</span> <span class="nav-text">throttle（节流）和 debounce（防抖）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#throttle（节流）"><span class="nav-number">3.1.</span> <span class="nav-text">throttle（节流）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debounce（防抖）"><span class="nav-number">3.2.</span> <span class="nav-text">debounce（防抖）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章未完待续…"><span class="nav-number">4.</span> <span class="nav-text">文章未完待续…</span></a></li></ol></div>
             
 
           </div>
